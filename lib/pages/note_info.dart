@@ -285,22 +285,37 @@ class _NoteInfoState extends State<NoteInfo> {
                 ),
 
                 buildHeight(context, 0.0001),
-                Container(
-                  height: height * 0.06,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    color: kLightYellow,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Open map",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: kDarkBlue,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 17,
-                        fontFamily: "Sf",
+                GestureDetector(
+                  onTap: () async {
+                    final String mapUrl = item.url;
+
+                    if (await canLaunch(mapUrl)) {
+                      await launch(mapUrl);
+                    } else {
+                      // If the URL can't be launched, show an error message
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Could not open maps')),
+                      );
+                    }
+                    ;
+                  },
+                  child: Container(
+                    height: height * 0.06,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24),
+                      color: kLightYellow,
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Open map",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: kDarkBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17,
+                          fontFamily: "Sf",
+                        ),
                       ),
                     ),
                   ),

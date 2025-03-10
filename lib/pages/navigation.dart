@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hohensyburg_dortmund_places/pages/diary_page.dart';
 import 'package:hohensyburg_dortmund_places/pages/location_page.dart';
 import 'package:hohensyburg_dortmund_places/pages/note_page.dart';
+import 'package:hohensyburg_dortmund_places/pages/settings_page.dart';
 import 'package:hohensyburg_dortmund_places/utils/colors.dart';
 
 class NavigationPage extends StatefulWidget {
@@ -17,9 +19,9 @@ class _NavigationPageState extends State<NavigationPage> {
 
   final List<Widget> _pages = [
     LocationPage(),
-    LocationPage(),
+    DiaryPage(),
     NotePage(),
-    LocationPage(),
+    SettingsPage(),
   ];
 
   final List<String> _iconPaths = [

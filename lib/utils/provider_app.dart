@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class ProviderApp extends ChangeNotifier {
   // Define your lists here
+  List<Routee> _routee = [];
 
   List<Attractions> _atractions = [
     Attractions(
@@ -159,6 +160,8 @@ class ProviderApp extends ChangeNotifier {
       place1_image: "images/Frame 1714.png",
       place2_image: "images/2.png",
       place3_image: "images/3.png",
+      url:
+          "https://www.google.com/maps/search/Dortmund+in+1+day/@51.4893665,7.4769899,13z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D",
     ),
     Library(
       title: "Best promenade in Dortmund",
@@ -179,6 +182,8 @@ class ProviderApp extends ChangeNotifier {
       place1_image: "images/11.png",
       place2_image: "images/12.png",
       place3_image: "images/13.png",
+      url:
+          "https://www.google.com/maps/place/Дортмунд,+Германия/@51.5079827,7.3054563,11z/data=!3m1!4b1!4m6!3m5!1s0x47b91760bff07a11:0x427f28131548750!8m2!3d51.5135872!4d7.4652981!16zL20vMDEzNWsy?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D",
     ),
     Library(
       title: "Unusual places",
@@ -199,6 +204,8 @@ class ProviderApp extends ChangeNotifier {
       place1_image: "images/aa.png",
       place2_image: "images/aaa.png",
       place3_image: "images/aaaa.png",
+      url:
+          "https://www.google.com/maps/place/Дортмунд,+Германия/@51.5076849,7.1584525,11z/data=!3m1!4b1!4m6!3m5!1s0x47b91760bff07a11:0x427f28131548750!8m2!3d51.5135872!4d7.4652981!16zL20vMDEzNWsy?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D",
     ),
   ];
 
@@ -208,6 +215,7 @@ class ProviderApp extends ChangeNotifier {
   List<Entertainment> get entertainment => _enterteinment;
   List<Recreation> get recreation => _recreation;
   List<Library> get library => _library;
+  List<Routee> get routee => _routee;
   // You can add methods to modify the lists and notify listeners
   int _selectedIndex = 0;
 
@@ -225,5 +233,10 @@ class ProviderApp extends ChangeNotifier {
     } else {
       throw Exception('Could not launch $_url');
     }
+  }
+
+  void addRoutee(Routee routee) {
+    _routee.add(routee);
+    notifyListeners();
   }
 }

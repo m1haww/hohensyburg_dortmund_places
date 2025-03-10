@@ -117,6 +117,7 @@ class Library {
   final String place1_image;
   final String place2_image;
   final String place3_image;
+  final String url;
 
   Library({
     required this.title,
@@ -134,5 +135,20 @@ class Library {
     required this.place1_image,
     required this.place2_image,
     required this.place3_image,
+    required this.url,
+  });
+}
+
+class Routee {
+  final String heading;
+  final String description;
+  final String date;
+  final String image;
+
+  Routee({
+    required this.heading,
+    required this.description,
+    required this.date,
+    required this.image,
   });
 }

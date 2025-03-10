@@ -216,7 +216,7 @@ class _LocationInfoState extends State<LocationInfo> {
 
                 GestureDetector(
                   onTap: () async {
-                    final String mapUrl = item.mapUrl;
+                    final String mapUrl = item.url;
 
                     if (await canLaunch(mapUrl)) {
                       await launch(mapUrl);
