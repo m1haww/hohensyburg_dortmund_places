@@ -152,3 +152,23 @@ class Routee {
     required this.image,
   });
 }
+
+class Places {
+  final String heading;
+  final String place1;
+  final String place2;
+  final String place3;
+  final String image1;
+  final String image2;
+  final String image3;
+
+  Places({
+    required this.heading,
+    required this.place1,
+    required this.place2,
+    required this.place3,
+    required this.image1,
+    required this.image2,
+    required this.image3,
+  });
+}

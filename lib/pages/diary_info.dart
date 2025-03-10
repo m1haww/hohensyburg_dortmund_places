@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hohensyburg_dortmund_places/pages/add_places.dart';
 import 'package:hohensyburg_dortmund_places/pages/basement.dart';
-import 'package:hohensyburg_dortmund_places/pages/diary_add.dart';
 import 'package:hohensyburg_dortmund_places/utils/classes.dart';
 import 'package:hohensyburg_dortmund_places/utils/colors.dart';
 import 'package:hohensyburg_dortmund_places/utils/provider_app.dart';
@@ -100,7 +99,7 @@ class _DiaryInfoState extends State<DiaryInfo> {
                 buildField(
                   context,
                   "Text",
-                  kGray,
+                  kWhite,
                   kGray,
                   controller: _headingcontroler,
                 ),
@@ -111,7 +110,7 @@ class _DiaryInfoState extends State<DiaryInfo> {
                 buildField(
                   context,
                   "Text",
-                  kGray,
+                  kWhite,
                   kGray,
                   controller: _descriptioncontroler,
                 ),
@@ -122,7 +121,7 @@ class _DiaryInfoState extends State<DiaryInfo> {
                 buildField(
                   context,
                   "Date",
-                  kGray,
+                  kWhite,
                   kGray,
                   controller: _datecontroler,
                 ),
