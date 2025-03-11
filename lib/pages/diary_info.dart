@@ -178,7 +178,7 @@ class _DiaryInfoState extends State<DiaryInfo> {
                             Navigator.push(
                               context,
                               CupertinoPageRoute(
-                                builder: (context) => AddPlaces(),
+                                builder: (context) => AddPlaces(routee: good),
                               ),
                             );
                           }

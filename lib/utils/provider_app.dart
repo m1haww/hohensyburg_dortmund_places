@@ -5,7 +5,6 @@ import 'package:url_launcher/url_launcher.dart';
 class ProviderApp extends ChangeNotifier {
   // Define your lists here
   List<Routee> _routee = [];
-  List<Places> _places = [];
   List<Attractions> _atractions = [
     Attractions(
       title: "Hohensyburg",
@@ -216,7 +215,6 @@ class ProviderApp extends ChangeNotifier {
   List<Recreation> get recreation => _recreation;
   List<Library> get library => _library;
   List<Routee> get routee => _routee;
-  List<Places> get places => _places;
   // You can add methods to modify the lists and notify listeners
   int _selectedIndex = 0;
 
@@ -241,8 +239,8 @@ class ProviderApp extends ChangeNotifier {
     notifyListeners();
   }
 
-  void addPlaces(Places places) {
-    _places.add(places);
+  void addPlaces(Routee route, Places places) {
+    route.places.add(places);
     notifyListeners();
   }
 

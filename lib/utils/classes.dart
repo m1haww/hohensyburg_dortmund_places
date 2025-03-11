@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class Attractions {
   final String title;
   final String image;
@@ -144,6 +146,7 @@ class Routee {
   final String description;
   final String date;
   final String image;
+  List<Places> places = [];
 
   Routee({
     required this.heading,
@@ -158,17 +161,12 @@ class Places {
   final String place1;
   final String place2;
   final String place3;
-  final String image1;
-  final String image2;
-  final String image3;
+  List<File> image = [];
 
   Places({
     required this.heading,
     required this.place1,
     required this.place2,
     required this.place3,
-    required this.image1,
-    required this.image2,
-    required this.image3,
   });
 }

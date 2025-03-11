@@ -12,7 +12,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 class AddPlaces extends StatefulWidget {
-  const AddPlaces({super.key});
+  final Routee routee;
+
+  const AddPlaces({super.key, required this.routee});
 
   @override
   State<AddPlaces> createState() => _AddPlacesState();
@@ -58,9 +60,6 @@ class _AddPlacesState extends State<AddPlaces> {
     }
 
     // Access images from the list
-    final image1 = _selectedImages[0].path;
-    final image2 = _selectedImages[1].path;
-    final image3 = _selectedImages[2].path;
 
     // Create a new Places object with the images
     final provider = Provider.of<ProviderApp>(context, listen: false);
@@ -69,26 +68,15 @@ class _AddPlacesState extends State<AddPlaces> {
       place1: _adress1controler.text,
       place2: _adress2controler.text,
       place3: _adress3controler.text,
-      image1: image1,
-      image2: image2,
-      image3: image3,
     );
-    final places = {
-      'heading': _headingcontroler.text,
-      'address1': _adress1controler.text,
-      'address2': _adress2controler.text,
-      'address3': _adress3controler.text,
-      'image1': _selectedImages[0].path,
-      'image2': _selectedImages[1].path,
-      'image3': _selectedImages[2].path,
-    };
+    newPlace.image = _selectedImages;
     // Use the provider to add the new place if needed
-    provider.addPlaces(newPlace);
+    provider.addPlaces(widget.routee, newPlace);
 
     // Navigate to the AddSuccesful page
     Navigator.push(
       context,
-      CupertinoPageRoute(builder: (context) => AddSuccesful(places: places)),
+      CupertinoPageRoute(builder: (context) => AddSuccesful()),
     );
   }
 
@@ -163,17 +151,6 @@ class _AddPlacesState extends State<AddPlaces> {
                 buildContainerr(context),
                 buildHeight(context, 0.02),
 
-                Container(
-                  width: double.infinity,
-                  height: height * 0.09,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: kLightYellow,
-                  ),
-                  child: Center(
-                    child: Icon(Icons.add, size: 24, color: kDarkBlue),
-                  ),
-                ),
                 buildHeight(context, 0.04),
                 GestureDetector(
                   onTap: _validateAndProceed,

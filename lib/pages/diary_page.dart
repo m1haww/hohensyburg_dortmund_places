@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hohensyburg_dortmund_places/pages/diary_details.dart';
 import 'package:hohensyburg_dortmund_places/pages/diary_info.dart';
+import 'package:hohensyburg_dortmund_places/utils/classes.dart';
 import 'package:hohensyburg_dortmund_places/utils/colors.dart';
 import 'package:hohensyburg_dortmund_places/utils/provider_app.dart';
 import 'package:hohensyburg_dortmund_places/utils/text.dart';
@@ -14,18 +16,15 @@ class DiaryPage extends StatefulWidget {
 }
 
 class _DiaryPageState extends State<DiaryPage> {
-  Map<String, String>? _placeData;
-
   @override
   Widget build(BuildContext context) {
-    final good = Provider.of<ProviderApp>(context).routee;
+    final _routeeList = Provider.of<ProviderApp>(context).routee;
 
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: kDarkBlue,
-
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: false,
@@ -36,21 +35,56 @@ class _DiaryPageState extends State<DiaryPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (_placeData != null) ...[
-              Text(
-                _placeData!['heading'] ?? 'No Title',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: kWhite,
-                ),
+            // ListView to display Routee objects
+            Expanded(
+              child: ListView.builder(
+                itemCount: _routeeList.length,
+                itemBuilder: (context, index) {
+                  final routeeItem = _routeeList[index];
+
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder:
+                              (context) => DiaryDetails(routee: routeeItem),
+                        ),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(16),
+                            child: Image.asset(
+                              routeeItem.image,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: 180,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0, left: 10),
+                            child: Text(
+                              routeeItem.heading,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                                fontFamily: "Sf",
+                                color: kWhite,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
-              Text(
-                _placeData!['place1'] ?? 'No Address',
-                style: TextStyle(fontSize: 18, color: kWhite),
-              ),
-              Image.asset(_placeData!['image1'] ?? 'default_image.png'),
-            ],
+            ),
           ],
         ),
       ),
@@ -65,9 +99,9 @@ class _DiaryPageState extends State<DiaryPage> {
               CupertinoPageRoute(builder: (context) => DiaryInfo()),
             );
 
-            if (result != null && result is Map<String, String>) {
+            if (result != null && result is Routee) {
               setState(() {
-                _placeData = result; // Salvăm datele primite
+                _routeeList.add(result); // Add the new Routee to the list
               });
             }
           },

@@ -140,9 +140,15 @@ class _NoteInfoState extends State<NoteInfo> {
                           scrollDirection: Axis.horizontal,
                           children: [
                             _buildPlaceCard(item.place1_image, item.place1),
-                            _buildDashedLine(), // Linie punctată
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 40.0),
+                              child: _buildDashedLine(),
+                            ), // Linie punctată
                             _buildPlaceCard(item.place2_image, item.place2),
-                            _buildDashedLine(),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 40.0),
+                              child: _buildDashedLine(),
+                            ),
                             _buildPlaceCard(item.place3_image, item.place3),
                           ],
                         ),
@@ -351,18 +357,15 @@ class _NoteInfoState extends State<NoteInfo> {
   }
 
   Widget _buildDashedLine() {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 40.0),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: List.generate(
-          10,
-          (index) => Container(
-            width: 5,
-            height: 2,
-            margin: EdgeInsets.symmetric(horizontal: 3),
-            color: Colors.white,
-          ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: List.generate(
+        10,
+        (index) => Container(
+          width: 5,
+          height: 2,
+          margin: EdgeInsets.symmetric(horizontal: 3),
+          color: Colors.white,
         ),
       ),
     );
