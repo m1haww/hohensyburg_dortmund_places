@@ -157,141 +157,140 @@ class _DiaryDetailsState extends State<DiaryDetails> {
                   ),
                 ),
                 Container(
-                  height: height * 0.2, // Adjust the height of the list view
+                  height: height * 0.3, // Adjust the height of the list view
                   child: ListView.builder(
                     scrollDirection:
                         Axis.horizontal, // Set the scroll direction to horizontal
                     itemCount: widget.routee.places.length,
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // First Place
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // First Place
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
 
-                              children: [
-                                Stack(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(100),
-                                      child: Image.file(
-                                        widget.routee.places[index].image[0],
-                                        width: width * 0.35,
-                                        height: height * 0.15,
-                                        fit: BoxFit.cover,
-                                      ),
+                            children: [
+                              Stack(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(100),
+                                    child: Image.file(
+                                      widget.routee.places[index].image[0],
+                                      width: width * 0.35,
+                                      height: height * 0.17,
+                                      fit: BoxFit.cover,
                                     ),
-                                    Positioned(
-                                      top: 0.1,
-                                      right: 0.1,
-                                      child: Image.asset("images/alfa1.png"),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ), // Space between image and text
-                                Text(
-                                  widget.routee.places[index].place1,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16,
-                                    fontFamily: "Sf",
-                                    color: kWhite,
-                                  ), // Adjust text style as needed
-                                ),
-                              ],
-                            ),
-
-                            Padding(
-                              padding: const EdgeInsets.only(top: 70),
-                              child: _buildDashedLine(),
-                            ), // Dashed Line between places
-                            // Second Place
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-
-                              children: [
-                                Stack(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(100),
-                                      child: Image.file(
-                                        widget.routee.places[index].image[1],
-                                        width: width * 0.35,
-                                        height: height * 0.15,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: 0.1,
-                                      right: 0.1,
-                                      child: Image.asset("images/beta.png"),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 5),
-                                Text(
-                                  textAlign: TextAlign.left,
-                                  widget.routee.places[index].place2,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16,
-                                    fontFamily: "Sf",
-                                    color: kWhite,
                                   ),
-                                ),
-                              ],
-                            ),
-
-                            Padding(
-                              padding: const EdgeInsets.only(top: 70),
-                              child: _buildDashedLine(),
-                            ),
-
-                            // Third Place
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Stack(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(100),
-                                      child: Image.file(
-                                        widget.routee.places[index].image[2],
-                                        width: width * 0.35,
-                                        height: height * 0.15,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: 0.1,
-                                      right: 0.1,
-                                      child: Image.asset("images/ceta.png"),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 5),
-                                Text(
-                                  widget.routee.places[index].place3,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16,
-                                    fontFamily: "Sf",
-                                    color: kWhite,
+                                  Positioned(
+                                    top: 0.1,
+                                    right: 0.1,
+                                    child: Image.asset("images/alfa1.png"),
                                   ),
+                                ],
+                              ),
+                              buildHeight(
+                                context,
+                                0.02,
+                              ), // Space between image and text
+                              Text(
+                                widget.routee.places[index].place1,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  fontFamily: "Sf",
+                                  color: kWhite,
+                                ), // Adjust text style as needed
+                              ),
+                            ],
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(top: 70),
+                            child: _buildDashedLine(),
+                          ), // Dashed Line between places
+                          // Second Place
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+
+                            children: [
+                              Stack(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(100),
+                                    child: Image.file(
+                                      widget.routee.places[index].image[1],
+                                      width: width * 0.35,
+                                      height: height * 0.17,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 0.1,
+                                    right: 0.1,
+                                    child: Image.asset("images/beta.png"),
+                                  ),
+                                ],
+                              ),
+                              buildHeight(context, 0.01),
+                              Text(
+                                textAlign: TextAlign.left,
+                                widget.routee.places[index].place2,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  fontFamily: "Sf",
+                                  color: kWhite,
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(top: 70),
+                            child: _buildDashedLine(),
+                          ),
+                          buildHeight(context, 0.01),
+                          // Third Place
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Stack(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(100),
+                                    child: Image.file(
+                                      widget.routee.places[index].image[2],
+                                      width: width * 0.35,
+                                      height: height * 0.17,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 0.1,
+                                    right: 0.1,
+                                    child: Image.asset("images/ceta.png"),
+                                  ),
+                                ],
+                              ),
+                              buildHeight(context, 0.01),
+                              Text(
+                                widget.routee.places[index].place3,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  fontFamily: "Sf",
+                                  color: kWhite,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       );
                     },
                   ),
                 ),
+                buildHeight(context, 0.1),
               ],
             ),
           ),

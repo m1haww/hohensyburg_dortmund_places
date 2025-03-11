@@ -18,43 +18,44 @@ class _AddSuccesfulState extends State<AddSuccesful> {
     return Scaffold(
       backgroundColor: kDarkBlue,
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            buildHeight(context, 0.15),
-            Center(
-              child: Text(
-                "Way is successfully \n added",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: "Sf",
-                  fontWeight: FontWeight.w700,
-                  fontSize: 36,
-                  color: kWhite,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              buildHeight(context, 0.15),
+              Center(
+                child: Text(
+                  "Way is successfully \n added",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: "Sf",
+                    fontWeight: FontWeight.w700,
+                    fontSize: 36,
+                    color: kWhite,
+                  ),
                 ),
               ),
-            ),
-            buildHeight(context, 0.02),
-            Center(
-              child: Image(
-                image: AssetImage("images/------ (4) 1.png"),
-                fit: BoxFit.cover,
+              buildHeight(context, 0.02),
+              Center(
+                child: Image(
+                  image: AssetImage("images/------ (4) 1.png"),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: GestureDetector(
-                onTap: () {
-                  // Pass the data back to the previous page
-                  Navigator.pop(context);
-                  Navigator.pop(context); // Pop the second context if needed
-                  Navigator.pop(context); // Pop the first context if needed
-                },
-                child: buildContainer(context, "Close"),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: GestureDetector(
+                  onTap: () {
+                    // Pass the data back to the previous page
+                    Navigator.pop(context);
+                    Navigator.pop(context); // Pop the second context if needed
+                    Navigator.pop(context); // Pop the first context if needed
+                  },
+                  child: buildContainer(context, "Close"),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

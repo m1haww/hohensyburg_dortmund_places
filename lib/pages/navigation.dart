@@ -43,7 +43,7 @@ class _NavigationPageState extends State<NavigationPage> {
           bottom: 50,
         ), // Higher position
         child: Container(
-          height: 90, // ⬆ Makes the navbar taller
+          height: 80, // ⬆ Makes the navbar taller
           decoration: BoxDecoration(
             color: kDarkMidBlue,
             borderRadius: BorderRadius.circular(24), // ⬆ Bigger rounded corners

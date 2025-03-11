@@ -135,25 +135,24 @@ class _NoteInfoState extends State<NoteInfo> {
                       buildHeight(context, 0.02),
 
                       Container(
-                        height: height * 0.2,
+                        height: height * 0.3,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
-                            _buildPlaceCard(item.place1_image, item.place1),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 40.0),
-                              child: _buildDashedLine(),
-                            ), // Linie punctată
-                            _buildPlaceCard(item.place2_image, item.place2),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 40.0),
-                              child: _buildDashedLine(),
+                            Row(
+                              crossAxisAlignment:
+                                  CrossAxisAlignment.start, // Aliniere la start
+                              children: [
+                                _buildPlaceCard(item.place1_image, item.place1),
+                                _buildDashedLine(),
+                                _buildPlaceCard(item.place2_image, item.place2),
+                                _buildDashedLine(),
+                                _buildPlaceCard(item.place3_image, item.place3),
+                              ],
                             ),
-                            _buildPlaceCard(item.place3_image, item.place3),
                           ],
                         ),
                       ),
-
                       buildHeight(context, 0.03),
                       Text(
                         "Reviews",

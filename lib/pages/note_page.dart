@@ -49,7 +49,7 @@ class _NotePageState extends State<NotePage> {
         crossAxisCount: 1,
         crossAxisSpacing: 5.0,
         mainAxisSpacing: 5.0,
-        childAspectRatio: 1.7,
+        childAspectRatio: 1.55,
       ),
       itemCount: list.length,
       itemBuilder: (context, index) {

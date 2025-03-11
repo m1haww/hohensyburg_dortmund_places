@@ -34,16 +34,29 @@ class _SettingsPageState extends State<SettingsPage> {
         backgroundColor: kDarkBlue,
       ),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            buildHeight(context, 0.04),
-            buildContainer(context, "Developer website", "images/Vector.png"),
-            buildHeight(context, 0.04),
-            buildContainer(context, "Developer website", "images/alfa.png"),
-            buildHeight(context, 0.04),
-            buildContainer(context, "Developer website", "images/Group.png"),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                buildHeight(context, 0.04),
+                buildContainer(
+                  context,
+                  "Developer website",
+                  "images/Vector.png",
+                ),
+                buildHeight(context, 0.04),
+                buildContainer(context, "Developer website", "images/alfa.png"),
+                buildHeight(context, 0.04),
+                buildContainer(
+                  context,
+                  "Developer website",
+                  "images/Group.png",
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
