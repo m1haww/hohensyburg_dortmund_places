@@ -140,13 +140,12 @@ class _NoteInfoState extends State<NoteInfo> {
                           scrollDirection: Axis.horizontal,
                           children: [
                             Row(
-                              crossAxisAlignment:
-                                  CrossAxisAlignment.start, // Aliniere la start
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 _buildPlaceCard(item.place1_image, item.place1),
-                                _buildDashedLine(),
+                                Center(child: _buildDashedLine()),
                                 _buildPlaceCard(item.place2_image, item.place2),
-                                _buildDashedLine(),
+                                Center(child: _buildDashedLine()),
                                 _buildPlaceCard(item.place3_image, item.place3),
                               ],
                             ),

@@ -43,7 +43,7 @@ class _AddSuccesfulState extends State<AddSuccesful> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.only(left: 15.0, right: 15),
                 child: GestureDetector(
                   onTap: () {
                     // Pass the data back to the previous page
@@ -54,6 +54,7 @@ class _AddSuccesfulState extends State<AddSuccesful> {
                   child: buildContainer(context, "Close"),
                 ),
               ),
+              buildHeight(context, 0.1),
             ],
           ),
         ),
