@@ -135,7 +135,7 @@ class _NoteInfoState extends State<NoteInfo> {
                       buildHeight(context, 0.02),
 
                       Container(
-                        height: height * 0.3,
+                        height: height * 0.20,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
@@ -333,10 +333,19 @@ class _NoteInfoState extends State<NoteInfo> {
   }
 
   Widget _buildPlaceCard(String imagePath, String placeName) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(child: Image.asset(imagePath)),
+        SizedBox(
+          child: Image.asset(
+            imagePath,
+            width: width * 0.32,
+            height: height * 0.15,
+          ),
+        ),
         buildHeight(context, 0.02),
         Padding(
           padding: const EdgeInsets.only(left: 20.0),

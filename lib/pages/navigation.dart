@@ -33,14 +33,16 @@ class _NavigationPageState extends State<NavigationPage> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: kDarkBlue,
       body: _pages[_select],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(
+        padding: EdgeInsets.only(
           left: 16,
           right: 16,
-          bottom: 50,
+          bottom: height * 0.05,
         ), // Higher position
         child: Container(
           height: 80, // ⬆ Makes the navbar taller
