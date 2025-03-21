@@ -4,11 +4,11 @@ workflows:
     instance_type: mac_mini_m1
     max_build_duration: 120
     integrations:
-      app_store_connect: CodFlSky3082
+      app_store_connect: CodFlHohensyburg3116
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: com.sky.city.quiz
+        bundle_identifier: com.hohensyburg.dortmund.places
       vars:
         APP_ID: 6743633440
       flutter: stable
