@@ -79,8 +79,18 @@ class _LocationInfoState extends State<LocationInfo> {
                         ),
                       ),
                       buildHeight(context, 0.02),
+                    ],
+                  ),
+                ),
+
+                // Replace the review sections with "Details" or any other section name you prefer
+                Padding(
+                  padding: EdgeInsets.all(height * 0.01),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        "Reviews",
+                        "Details", // Change the title to something like "Details" or any section name
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 18,
@@ -88,132 +98,40 @@ class _LocationInfoState extends State<LocationInfo> {
                           color: kWhite,
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    color: kDarkMidBlue,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image(image: AssetImage("images/Avatar.png")),
-                            buildWidth(context, 0.017),
-                            Text(
-                              item.reviewer,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                fontFamily: "Sf",
-                                color: kWhite,
-                              ),
-                            ),
-                            Spacer(),
-                            Image(
-                              image: AssetImage("images/Frame 1462983574.png"),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, right: 15),
-                        child: Text(
-                          item.reviewerdescription,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            fontFamily: "Sf",
-                            color: kWhite,
-                          ),
+                      buildHeight(context, 0.01),
+                      // Add custom content here to display additional information, not reviews
+                      Text(
+                        "Discover more about this place, including its history, cultural significance, or other interesting facts.",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          fontFamily: "Sf",
+                          color: kWhite,
                         ),
                       ),
                       buildHeight(context, 0.02),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, bottom: 15),
-                        child: Text(
-                          item.date,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 11,
-                            fontFamily: "Sf",
-                            color: kWhiteOpacity,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                buildHeight(context, 0.008),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    color: kDarkMidBlue,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image(image: AssetImage("images/Avatar.png")),
-                            buildWidth(context, 0.017),
-                            Text(
-                              item.reviewer2,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                fontFamily: "Sf",
-                                color: kWhite,
-                              ),
-                            ),
-                            Spacer(),
-                            Image(
-                              image: AssetImage("images/Frame 1462983574.png"),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, right: 15),
-                        child: Text(
-                          item.reviewerdescription2,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            fontFamily: "Sf",
-                            color: kWhite,
-                          ),
+                      Text(
+                        "Did you know? This place is famous for its architectural beauty, attracting visitors from all over the world.",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          fontFamily: "Sf",
+                          color: kWhite,
                         ),
                       ),
                       buildHeight(context, 0.02),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, bottom: 15),
-                        child: Text(
-                          item.date,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 11,
-                            fontFamily: "Sf",
-                            color: kWhiteOpacity,
-                          ),
+                      Text(
+                        "Visitors can also enjoy nearby attractions such as museums, parks, and historical landmarks.",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          fontFamily: "Sf",
+                          color: kWhite,
                         ),
                       ),
                     ],
                   ),
                 ),
-                buildHeight(context, 0.04),
-
                 GestureDetector(
                   onTap: () async {
                     final String mapUrl = item.url;
@@ -226,7 +144,6 @@ class _LocationInfoState extends State<LocationInfo> {
                         SnackBar(content: Text('Could not open maps')),
                       );
                     }
-                    ;
                   },
                   child: Container(
                     height: height * 0.06,

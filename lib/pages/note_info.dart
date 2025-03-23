@@ -134,7 +134,7 @@ class _NoteInfoState extends State<NoteInfo> {
                       ),
                       buildHeight(context, 0.02),
 
-                      Container(
+                      SizedBox(
                         height: height * 0.20,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
@@ -153,141 +153,38 @@ class _NoteInfoState extends State<NoteInfo> {
                         ),
                       ),
                       buildHeight(context, 0.03),
-                      Text(
-                        "Reviews",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          fontFamily: "Sf",
-                          color: kWhite,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    color: kDarkMidBlue,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image(image: AssetImage("images/Avatar.png")),
-                            buildWidth(context, 0.01),
-                            Text(
-                              item.reviewer,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                fontFamily: "Sf",
-                                color: kWhite,
-                              ),
-                            ),
-                            Spacer(),
-                            Image(
-                              image: AssetImage("images/Frame 1462983574.png"),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, right: 15),
-                        child: Text(
-                          item.reviewerdescription,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            fontFamily: "Sf",
-                            color: kWhite,
-                          ),
-                        ),
-                      ),
-                      buildHeight(context, 0.02),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, bottom: 15),
-                        child: Text(
-                          item.date,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 11,
-                            fontFamily: "Sf",
-                            color: kWhiteOpacity,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                buildHeight(context, 0.008),
-
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    color: kDarkMidBlue,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image(image: AssetImage("images/Avatar.png")),
-                            buildWidth(context, 0.01),
-                            Text(
-                              item.reviewer2,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                fontFamily: "Sf",
-                                color: kWhite,
-                              ),
-                            ),
-                            Spacer(),
-                            Image(
-                              image: AssetImage("images/Frame 1462983574.png"),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, right: 15),
-                        child: Text(
-                          item.reviewerdescription2,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            fontFamily: "Sf",
-                            color: kWhite,
-                          ),
-                        ),
-                      ),
-                      buildHeight(context, 0.02),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, bottom: 15),
-                        child: Text(
-                          item.date,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 11,
-                            fontFamily: "Sf",
-                            color: kWhiteOpacity,
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),
 
+                buildHeight(context, 0.03),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15.0, right: 15),
+                  child: Text(
+                    "Check Location",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      fontFamily: "Sf",
+                      color: kWhite,
+                    ),
+                  ),
+                ),
+                buildHeight(context, 0.02),
+
+                // Instructional Text
+                Padding(
+                  padding: const EdgeInsets.only(left: 15.0, right: 15),
+                  child: Text(
+                    "Here below you can check the location on Google Maps. Tap the button to open the map and get directions.",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                      fontFamily: "Sf",
+                      color: kWhite,
+                    ),
+                  ),
+                ),
                 buildHeight(context, 0.0001),
                 GestureDetector(
                   onTap: () async {
@@ -301,7 +198,6 @@ class _NoteInfoState extends State<NoteInfo> {
                         SnackBar(content: Text('Could not open maps')),
                       );
                     }
-                    ;
                   },
                   child: Container(
                     height: height * 0.06,

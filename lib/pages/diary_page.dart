@@ -18,7 +18,7 @@ class DiaryPage extends StatefulWidget {
 class _DiaryPageState extends State<DiaryPage> {
   @override
   Widget build(BuildContext context) {
-    final _routeeList = Provider.of<ProviderApp>(context).routee;
+    final routeeList = Provider.of<ProviderApp>(context).routee;
 
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
@@ -35,60 +35,78 @@ class _DiaryPageState extends State<DiaryPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Check if the list is empty and display a message
+            if (routeeList.isEmpty)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  "You haven't added anything yet.",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    fontFamily: "Sf",
+                    color: kWhite,
+                  ),
+                ),
+              ),
             // ListView to display Routee objects
-            Expanded(
-              child: ListView.builder(
-                itemCount: _routeeList.length,
-                itemBuilder: (context, index) {
-                  final routeeItem = _routeeList[index];
+            if (routeeList.isNotEmpty)
+              Expanded(
+                child: ListView.builder(
+                  itemCount: routeeList.length,
+                  itemBuilder: (context, index) {
+                    final routeeItem = routeeList[index];
 
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder:
-                              (context) => DiaryDetails(routee: routeeItem),
-                        ),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: Image.asset(
-                              routeeItem.image,
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: 180,
-                            ),
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder:
+                                (context) => DiaryDetails(routee: routeeItem),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0, left: 10),
-                            child: Text(
-                              routeeItem.heading,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                fontFamily: "Sf",
-                                color: kWhite,
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.asset(
+                                routeeItem.image,
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                height: 180,
                               ),
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                top: 8.0,
+                                left: 10,
+                              ),
+                              child: Text(
+                                routeeItem.heading,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                  fontFamily: "Sf",
+                                  color: kWhite,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
           ],
         ),
       ),
-      floatingActionButton: Container(
+      floatingActionButton: SizedBox(
         width: width * 0.35,
         height: height * 0.07,
         child: FloatingActionButton(
@@ -101,7 +119,7 @@ class _DiaryPageState extends State<DiaryPage> {
 
             if (result != null && result is Routee) {
               setState(() {
-                _routeeList.add(result); // Add the new Routee to the list
+                routeeList.add(result); // Add the new Routee to the list
               });
             }
           },
