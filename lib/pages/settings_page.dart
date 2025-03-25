@@ -41,15 +41,8 @@ class _SettingsPageState extends State<SettingsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 buildHeight(context, 0.04),
-                buildContainer(
-                  context,
-                  "Developer website",
-                  "images/Vector.png",
-                ),
-                buildHeight(context, 0.04),
                 buildContainer(context, "Privacy policy", "images/alfa.png"),
                 buildHeight(context, 0.04),
-                buildContainer(context, "Terms of use", "images/Group.png"),
               ],
             ),
           ),

@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 class ProviderApp extends ChangeNotifier {
   // Define your lists here
   List<Routee> _routee = [];
-  List<Attractions> _atractions = [
+  final List<Attractions> _atractions = [
     Attractions(
       title: "Hohensyburg",
       image: "images/Frame.png",
@@ -39,7 +39,7 @@ class ProviderApp extends ChangeNotifier {
           "https://www.google.com/maps/place/Вестфаленпарк+Дортмунд/@51.4955344,7.4761159,17z/data=!3m1!4b1!4m6!3m5!1s0x47b91770564f5697:0xd2ea1a0fd28b0ad2!8m2!3d51.4955311!4d7.4786908!16s%2Fg%2F1234zjd_?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D",
     ),
   ];
-  List<Restaurants> _restaurants = [
+  final List<Restaurants> _restaurants = [
     Restaurants(
       title: "Brauhaus Dortmund",
       image: "images/Fram 1462983545.png",
@@ -72,7 +72,7 @@ class ProviderApp extends ChangeNotifier {
           "https://www.google.com/maps/search/Ristorante+Da+Vinci/@51.4955531,7.1490565,10z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D",
     ),
   ];
-  List<Entertainment> _enterteinment = [
+  final List<Entertainment> _enterteinment = [
     Entertainment(
       title: "UCI Kinowelt Dortmund",
       image: "images/Frame 14983545.png",
@@ -105,7 +105,7 @@ class ProviderApp extends ChangeNotifier {
           "https://www.google.com/maps/place/Сигнал+Идуна+Парк/@51.4925921,7.4492825,17z/data=!3m2!4b1!5s0x47b919d3ba62d2a3:0x64dca8536434a630!4m6!3m5!1s0x47b919d39230d60f:0x8fd9c195ad02eddf!8m2!3d51.4925888!4d7.4518574!16zL20vMDZkenRr?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D",
     ),
   ];
-  List<Recreation> _recreation = [
+  final List<Recreation> _recreation = [
     Recreation(
       title: "Rombergpark",
       image: "images/Frame 146295.png",
@@ -139,7 +139,7 @@ class ProviderApp extends ChangeNotifier {
     ),
   ];
 
-  List<Library> _library = [
+  final List<Library> _library = [
     Library(
       title: "Dortmund in 1 day",
       image: "images/1.png",
@@ -226,11 +226,11 @@ class ProviderApp extends ChangeNotifier {
   }
 
   Future<void> _launchUrl(String url) async {
-    final Uri _url = Uri.parse(url);
-    if (await canLaunch(_url.toString())) {
-      await launch(_url.toString());
+    final Uri url0 = Uri.parse(url);
+    if (await canLaunch(url0.toString())) {
+      await launch(url0.toString());
     } else {
-      throw Exception('Could not launch $_url');
+      throw Exception('Could not launch $url0');
     }
   }
 
